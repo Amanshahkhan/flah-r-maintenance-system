@@ -1,0 +1,313 @@
+/* --- General & Resets --- */
+:root {
+    --primary-color: #2a3f54;
+    --secondary-color: #1abb9c;
+    --background-light: #f7f7f7;
+    --text-color: #5a5a5a;
+    --sidebar-width: 250px;
+    --header-height: 70px;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    margin: 0;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Main Dashboard Layout --- */
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* --- Sidebar Styling --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--primary-color);
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: width 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.logo-alt {
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+}
+
+.sidebar-nav ul li a {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.2s;
+    border-right: 4px solid transparent;
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav ul li.active a {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-right: 4px solid var(--secondary-color);
+    font-weight: 700;
+}
+
+.sidebar-nav i {
+    width: 25px;
+    margin-left: 1rem; /* In RTL, this is margin-end */
+    font-size: 1.1rem;
+}
+
+.badge {
+    margin-right: auto; /* Push to the end in RTL */
+    background-color: var(--secondary-color);
+    color: white;
+    font-size: 0.8em;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.sidebar-footer {
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: #ecf0f1;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+.logout-button:hover {
+    opacity: 1;
+}
+
+/* --- Main Content Header --- */
+.main-header {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+.main-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+}
+.main-header p {
+    margin: 0.25rem 0 0;
+}
+
+/* --- Summary Cards --- */
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+}
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-left: 1.5rem;
+}
+.card-content h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    color: #777;
+    font-weight: 500;
+}
+.card-content p {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* --- Table Styling --- */
+.content-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+.table-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+.table-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+.table-responsive {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 1rem 1.5rem;
+    text-align: right;
+    border-bottom: 1px solid #e0e0e0;
+}
+thead th {
+    background-color: #f9fafb;
+    font-weight: 700;
+    color: #333;
+}
+tbody tr:last-child td {
+    border-bottom: none;
+}
+tbody tr:hover {
+    background-color: #f7f7f7;
+}
+.client-info {
+    display: flex;
+    flex-direction: column;
+}
+.client-info span {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* --- Status & Action Buttons --- */
+.status {
+    padding: 0.3rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+}
+.status.assigned { background-color: #3498db; }
+.status.in-progress { background-color: #f1c40f; color: #333; }
+.status.completed { background-color: #2ecc71; }
+.status.rejected { background-color: #e74c3c; }
+
+.action-btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: opacity 0.2s;
+}
+.action-btn.view { background-color: #3498db; }
+.action-btn:hover { opacity: 0.85; }
+
+.alert-success {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.1rem;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin: 1.5rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .sidebar-header { border: none; padding: 0.5rem 0;}
+    .sidebar-nav { flex-grow: 1; overflow-x: auto; }
+    .sidebar-nav ul { display: flex; }
+    .sidebar-nav ul li a { padding: 1rem; border-right: none; border-bottom: 4px solid transparent; }
+    .sidebar-nav ul li.active a { border-right: none; border-bottom-color: var(--secondary-color); }
+    .sidebar-footer { border: none; padding: 0.5rem 0;}
+}
+
+@media (max-width: 768px) {
+    .main-content { padding: 1rem; }
+    table {
+        border: 0;
+    }
+    table thead {
+        display: none; /* Hide table headers */
+    }
+    table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    table td {
+        display: block;
+        text-align: left; /* Switch to left align */
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid #eee;
+    }
+    table td:last-child {
+        border-bottom: 0;
+    }
+    table td::before {
+        content: attr(data-label);
+        position: absolute;
+        right: 1rem; /* RTL position */
+        left: auto;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: right; /* RTL align */
+    }
+}

@@ -47,7 +47,9 @@
         <td>{{ $request->vehicle_model }}</td>
     </tr>
    <tr>
-        <th>رقم الشاصي</th>
+        <th>
+            رقم الشاصي
+        </th>
         {{-- ✅ THIS IS THE CORRECTED LINE --}}
         <td>{{ $request->chassis_number }}</td>
     </tr>
